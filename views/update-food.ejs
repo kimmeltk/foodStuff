@@ -1,0 +1,79 @@
+<% include partials/header %>
+
+<div class="container">
+
+    <h2>Update Food</h2>
+    
+    <p><a href="/">Home</a><p>
+
+    <form>
+        <input type="hidden" name="food_id" id="food_id" value="<%= food._id %>">
+        <div class="form-group">
+            <label for="first_name">Food Name</label>
+            <input type="text" name="food_name" id="food_name" value="<%= food.food_name %>">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" value="<%= food.description %>">
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" value="<%= food.category %>">
+        </div>
+
+        <div class="form-group">
+            <label for="serving_size">Serving Size</label>
+            <input type="text" name="serving_size" id="serving_size" value="<%= food.serving_size %>">
+        </div>
+
+        <div class="form-group">
+            <label for="units">Units</label>
+            <input type="text" name="units" id="units" value="<%= food.units %>">
+        </div>
+
+        <div class="form-group">
+            <label for="calories">Calories</label>
+            <input type="text" name="calories" id="calories" value="<%= food.calories %>">
+        </div>
+
+        <div class="form-group">
+            <label for="meal">Meal</label>
+            <input type="text" name="meal" id="meal" value="<%= food.meal %>">
+        </div>
+
+
+        <a href="#" class="btn btn-success" id="update">Save</a>
+    </form>
+
+</div>
+
+<script>
+$(document).ready(function () {
+    $('#update').on('click', updateFood)
+})
+
+function updateFood () {
+    var food = {
+        "id": $('#food_id').val(),
+        "food_name": $('#food_name').val(),
+        "description": $('#description').val(),
+        "category": $('#category').val(),
+        "serving_size": $('#serving_size').val(),
+        "units": $('#units').val()
+        "calories": $('#calories').val()   
+        "meal": $('#meal').val()    
+    }
+    $.ajax({
+        type: 'PUT',
+        url: '/foods/update',
+        data: food
+    }).done(function (response) {
+        window.location.replace('/')
+    })
+    window.location.replace('/')
+}
+</script>
+
+<% include partials/footer %>

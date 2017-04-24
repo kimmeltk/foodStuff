@@ -1,0 +1,21 @@
+{
+  "name": "node-express-mongo-sample",
+  "version": "1.0.0",
+  "description": "Foodie project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "^2.5.6",
+    "express": "*",
+    "express-validator": "^3.1.3",
+    "mongojs": "^2.4.0"
+  },
+  "author": "CSCI 301 T",
+  "license": "ISC"
+}

@@ -1,0 +1,76 @@
+<% include partials/header %>
+
+<div class="container">
+    <h1>Foodie!</h1>
+    <h2><%= title %></h2>
+
+    <ul>
+        <% food.forEach(function (food) { %>
+            <li>
+                <%= food.food_name %> 
+                <%= food.description %>
+                <a href="#" class="updateFood" data-id="<%= food._id %>">Update</a>
+                <a href="#" class="deleteFood" data-id="<%= food._id %>">Delete</a>
+            </l1>
+            <ul>
+                <li>Category: <%= food.category %></li>
+                <li>Serving Size: <%= food.serving_size %></li>
+                <li>Units: <%= food.units %></li>
+                <li>Calories: <%= food.calories %></li>
+                <li>Meal: <%= food.meal %></li>
+            </ul>
+        <% }) %>
+    </ul>
+
+    <h2>Add Food</h2>
+
+    <% if (errors != undefined) { %>
+        <ul>
+        <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+        </ul>
+    <% } %>
+
+    <form method="POST" action="/foods/add">
+        <div class="form-group">
+            <label for="food_name">Food Name</label>
+            <input type="text" name="food_name" id="food_name" placeholder="Food">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" placeholder="Description">
+        </div>
+
+        <div class="form-group">
+            <label for="serving_size">Serving Size</label>
+            <input type="text" name="serving_size" id="serving_size" placeholder="100">
+        </div>
+
+        <div class="form-group">
+            <label for="units">Units</label>
+            <input type="text" name="units" id="units" placeholder="OZ">
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" placeholder="Grains">
+        </div>
+
+        <div class="form-group">
+            <label for="calories">Calories</label>
+            <input type="text" name="calories" id="calories" placeholder="100">
+        </div>
+
+        <div class="form-group">
+            <label for="meal">Meal</label>
+            <input type="text" name="meal" id="meal" placeholder="Breakfast">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+<% include partials/footer %>
