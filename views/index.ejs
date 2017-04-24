@@ -1,8 +1,8 @@
 <% include partials/header %>
 
 <div class="container">
-    <h1>Foodie!</h1>
-    <h2><%= title %></h2>
+    <h1>Foody App</h1>
+    <h1><%= title %></h1>
 
     <ul>
         <% food.forEach(function (food) { %>
@@ -14,7 +14,7 @@
             </l1>
             <ul>
                 <li>Category: <%= food.category %></li>
-                <li>Serving Size: <%= food.serving_size %></li>
+                <li>Serving Size: <%= food.serving %></li>
                 <li>Units: <%= food.units %></li>
                 <li>Calories: <%= food.calories %></li>
                 <li>Meal: <%= food.meal %></li>
